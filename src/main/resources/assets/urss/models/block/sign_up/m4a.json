@@ -1,0 +1,7 @@
+{
+   "parent": "urss:block/sign_up_template_sh",
+   "textures": {
+       "sign": "urss:blocks/m4a",
+       "sign_back": "urss:blocks/grey_64x23"
+   }
+}

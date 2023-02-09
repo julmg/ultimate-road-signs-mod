@@ -1,0 +1,75 @@
+{
+    "variants": {
+        "facing=east,color=green": {
+            "model": "urss:block/writable_sign/e41",
+            "y": 90
+        },
+        "facing=north,color=green": {
+            "model": "urss:block/writable_sign/e41"
+        },
+        "facing=south,color=green": {
+            "model": "urss:block/writable_sign/e41",
+            "y": 180
+        },
+        "facing=west,color=green": {
+            "model": "urss:block/writable_sign/e41",
+            "y": 270
+        },
+		
+		
+		
+		"facing=east,color=red": {
+            "model": "urss:block/writable_sign/e42",
+            "y": 90
+        },
+        "facing=north,color=red": {
+            "model": "urss:block/writable_sign/e42"
+        },
+        "facing=south,color=red": {
+            "model": "urss:block/writable_sign/e42",
+            "y": 180
+        },
+        "facing=west,color=red": {
+            "model": "urss:block/writable_sign/e42",
+            "y": 270
+        },
+		
+		
+		
+		"facing=east,color=yellow": {
+            "model": "urss:block/writable_sign/e43",
+            "y": 90
+        },
+        "facing=north,color=yellow": {
+            "model": "urss:block/writable_sign/e43"
+        },
+        "facing=south,color=yellow": {
+            "model": "urss:block/writable_sign/e43",
+            "y": 180
+        },
+        "facing=west,color=yellow": {
+            "model": "urss:block/writable_sign/e43",
+            "y": 270
+        },
+		
+		
+		
+		"facing=east,color=cyan": {
+            "model": "urss:block/writable_sign/e47",
+            "y": 90
+        },
+        "facing=north,color=cyan": {
+            "model": "urss:block/writable_sign/e47"
+        },
+        "facing=south,color=cyan": {
+            "model": "urss:block/writable_sign/e47",
+            "y": 180
+        },
+        "facing=west,color=cyan": {
+            "model": "urss:block/writable_sign/e47",
+            "y": 270
+        }
+        
+    }
+} 
+

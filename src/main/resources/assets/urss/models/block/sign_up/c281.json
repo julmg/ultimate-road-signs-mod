@@ -1,0 +1,7 @@
+{
+   "parent": "urss:block/sign_up_template",
+   "textures": {
+       "sign": "urss:blocks/c281",
+       "sign_back": "urss:blocks/grey_square"
+   }
+}

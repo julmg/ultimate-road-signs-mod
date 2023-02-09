@@ -1,0 +1,7 @@
+{
+   "parent": "urss:block/sign_template",
+   "textures": {
+       "sign": "urss:blocks/b8",
+       "sign_back": "urss:blocks/grey_circle"
+   }
+}

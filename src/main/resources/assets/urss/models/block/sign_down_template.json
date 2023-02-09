@@ -1,0 +1,45 @@
+{
+	"credit": "Made with Blockbench",
+	"render_type": "cutout",
+	"textures": {
+		"0": "block/iron_block",
+		"particle": "block/iron_block",
+		"sign": "urss:blocks/a1a",
+		"sign_back": "urss:blocks/grey_circle"
+	},
+	"elements": [
+		{
+			"from": [4, 0, 6.9],
+			"to": [12, 8, 6.9],
+			"faces": {
+				"north": {"uv": [0, 0, 16, 16], "texture": "#sign"},
+				"south": {"uv": [0, 0, 16, 16], "texture": "#sign_back"}
+			}
+		},
+		{
+			"from": [7, 0, 7],
+			"to": [9, 8, 9],
+			"faces": {
+				"north": {"uv": [6, 0, 8, 8], "texture": "#0"},
+				"east": {"uv": [4, 0, 6, 8], "texture": "#0"},
+				"south": {"uv": [2, 0, 4, 8], "texture": "#0"},
+				"west": {"uv": [8, 0, 10, 8], "texture": "#0"},
+				"up": {"uv": [0, 0, 2, 1], "texture": "#0"},
+				"down": {"uv": [0, 0, 2, 1], "texture": "#0"}
+			}
+		},
+		{
+			"name": "cubehor1",
+			"from": [6.25, 3.5, 7],
+			"to": [9.75, 4.5, 7.5],
+			"faces": {
+				"north": {"uv": [4, 0, 14, 1], "texture": "#0"},
+				"east": {"uv": [4, 0, 4.5, 1], "texture": "#0"},
+				"south": {"uv": [4, 0, 8, 1], "texture": "#0"},
+				"west": {"uv": [4, 0, 4.5, 1], "texture": "#0"},
+				"up": {"uv": [4, 0, 6, 1], "texture": "#0"},
+				"down": {"uv": [4, 0, 6, 1], "texture": "#0"}
+			}
+		}
+	]
+}

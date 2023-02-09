@@ -1,0 +1,7 @@
+{
+    "parent": "item/generated",
+    "textures": {
+		"layer0": "urss:items/parent_pole",
+		"layer1": "urss:items/c141"
+    }
+} 

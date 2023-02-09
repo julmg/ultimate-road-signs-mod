@@ -1,0 +1,19 @@
+{
+    "variants": {
+        "facing=east": {
+            "model": "urss:block/pole",
+            "y": 90
+        },
+        "facing=north": {
+            "model": "urss:block/pole"
+        },
+        "facing=south": {
+            "model": "urss:block/pole",
+            "y": 180
+        },
+        "facing=west": {
+            "model": "urss:block/pole",
+            "y": 270
+        }
+    }
+} 

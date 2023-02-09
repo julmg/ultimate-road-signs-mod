@@ -1,0 +1,54 @@
+{
+    "variants": {
+        "facing=east,type=full": {
+            "model": "urss:block/sign/c13a",
+            "y": 90
+        },
+        "facing=north,type=full": {
+            "model": "urss:block/sign/c13a"
+        },
+        "facing=south,type=full": {
+            "model": "urss:block/sign/c13a",
+            "y": 180
+        },
+        "facing=west,type=full": {
+            "model": "urss:block/sign/c13a",
+            "y": 270
+        },
+        
+        
+        "facing=east,type=small_up": {
+            "model": "urss:block/sign_up/c13a",
+            "y": 90
+        },
+        "facing=north,type=small_up": {
+            "model": "urss:block/sign_up/c13a"
+        },
+        "facing=south,type=small_up": {
+            "model": "urss:block/sign_up/c13a",
+            "y": 180
+        },
+        "facing=west,type=small_up": {
+            "model": "urss:block/sign_up/c13a",
+            "y": 270
+        },
+        
+        
+        "facing=east,type=small_down": {
+            "model": "urss:block/sign_down/c13a",
+            "y": 90
+        },
+        "facing=north,type=small_down": {
+            "model": "urss:block/sign_down/c13a"
+        },
+        "facing=south,type=small_down": {
+            "model": "urss:block/sign_down/c13a",
+            "y": 180
+        },
+        "facing=west,type=small_down": {
+            "model": "urss:block/sign_down/c13a",
+            "y": 270
+        }
+    }
+} 
+

@@ -1,0 +1,496 @@
+{
+    "variants": {
+        "facing=east,count=1,color=white_r": {
+            "model": "urss:block/writable_sign/directional/right/1/d43white",
+            "y": 90
+        },
+        "facing=north,count=1,color=white_r": {
+            "model": "urss:block/writable_sign/directional/right/1/d43white"
+        },
+        "facing=south,count=1,color=white_r": {
+            "model": "urss:block/writable_sign/directional/right/1/d43white",
+            "y": 180
+        },
+        "facing=west,count=1,color=white_r": {
+            "model": "urss:block/writable_sign/directional/right/1/d43white",
+            "y": 270
+        },
+        
+        
+        "facing=east,count=1,color=white_l": {
+            "model": "urss:block/writable_sign/directional/left/1/d43white",
+            "y": 90
+        },
+        "facing=north,count=1,color=white_l": {
+            "model": "urss:block/writable_sign/directional/left/1/d43white"
+        },
+        "facing=south,count=1,color=white_l": {
+            "model": "urss:block/writable_sign/directional/left/1/d43white",
+            "y": 180
+        },
+        "facing=west,count=1,color=white_l": {
+            "model": "urss:block/writable_sign/directional/left/1/d43white",
+            "y": 270
+        },
+		
+		
+		
+		
+		
+		
+		
+		"facing=east,count=2,color=white_r": {
+            "model": "urss:block/writable_sign/directional/right/2/d43white",
+            "y": 90
+        },
+        "facing=north,count=2,color=white_r": {
+            "model": "urss:block/writable_sign/directional/right/2/d43white"
+        },
+        "facing=south,count=2,color=white_r": {
+            "model": "urss:block/writable_sign/directional/right/2/d43white",
+            "y": 180
+        },
+        "facing=west,count=2,color=white_r": {
+            "model": "urss:block/writable_sign/directional/right/2/d43white",
+            "y": 270
+        },
+		
+		
+		"facing=east,count=2,color=white_l": {
+            "model": "urss:block/writable_sign/directional/left/2/d43white",
+            "y": 90
+        },
+        "facing=north,count=2,color=white_l": {
+            "model": "urss:block/writable_sign/directional/left/2/d43white"
+        },
+        "facing=south,count=2,color=white_l": {
+            "model": "urss:block/writable_sign/directional/left/2/d43white",
+            "y": 180
+        },
+        "facing=west,count=2,color=white_l": {
+            "model": "urss:block/writable_sign/directional/left/2/d43white",
+            "y": 270
+        },
+		
+		
+		
+		
+		"facing=east,count=3,color=white_r": {
+            "model": "urss:block/writable_sign/directional/right/3/d43white",
+            "y": 90
+        },
+        "facing=north,count=3,color=white_r": {
+            "model": "urss:block/writable_sign/directional/right/3/d43white"
+        },
+        "facing=south,count=3,color=white_r": {
+            "model": "urss:block/writable_sign/directional/right/3/d43white",
+            "y": 180
+        },
+        "facing=west,count=3,color=white_r": {
+            "model": "urss:block/writable_sign/directional/right/3/d43white",
+            "y": 270
+        },
+		
+		
+		"facing=east,count=3,color=white_l": {
+            "model": "urss:block/writable_sign/directional/left/3/d43white",
+            "y": 90
+        },
+        "facing=north,count=3,color=white_l": {
+            "model": "urss:block/writable_sign/directional/left/3/d43white"
+        },
+        "facing=south,count=3,color=white_l": {
+            "model": "urss:block/writable_sign/directional/left/3/d43white",
+            "y": 180
+        },
+        "facing=west,count=3,color=white_l": {
+            "model": "urss:block/writable_sign/directional/left/3/d43white",
+            "y": 270
+        },
+		
+		
+		
+		
+		
+		"facing=east,count=4,color=white_r": {
+            "model": "urss:block/writable_sign/directional/right/4/d43white",
+            "y": 90
+        },
+        "facing=north,count=4,color=white_r": {
+            "model": "urss:block/writable_sign/directional/right/4/d43white"
+        },
+        "facing=south,count=4,color=white_r": {
+            "model": "urss:block/writable_sign/directional/right/4/d43white",
+            "y": 180
+        },
+        "facing=west,count=4,color=white_r": {
+            "model": "urss:block/writable_sign/directional/right/4/d43white",
+            "y": 270
+        },
+		
+		
+		"facing=east,count=4,color=white_l": {
+            "model": "urss:block/writable_sign/directional/left/4/d43white",
+            "y": 90
+        },
+        "facing=north,count=4,color=white_l": {
+            "model": "urss:block/writable_sign/directional/left/4/d43white"
+        },
+        "facing=south,count=4,color=white_l": {
+            "model": "urss:block/writable_sign/directional/left/4/d43white",
+            "y": 180
+        },
+        "facing=west,count=4,color=white_l": {
+            "model": "urss:block/writable_sign/directional/left/4/d43white",
+            "y": 270
+        },
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		"facing=east,count=1,color=blue_r": {
+            "model": "urss:block/writable_sign/directional/right/1/d43blue",
+            "y": 90
+        },
+        "facing=north,count=1,color=blue_r": {
+            "model": "urss:block/writable_sign/directional/right/1/d43blue"
+        },
+        "facing=south,count=1,color=blue_r": {
+            "model": "urss:block/writable_sign/directional/right/1/d43blue",
+            "y": 180
+        },
+        "facing=west,count=1,color=blue_r": {
+            "model": "urss:block/writable_sign/directional/right/1/d43blue",
+            "y": 270
+        },
+        
+        
+        "facing=east,count=1,color=blue_l": {
+            "model": "urss:block/writable_sign/directional/left/1/d43blue",
+            "y": 90
+        },
+        "facing=north,count=1,color=blue_l": {
+            "model": "urss:block/writable_sign/directional/left/1/d43blue"
+        },
+        "facing=south,count=1,color=blue_l": {
+            "model": "urss:block/writable_sign/directional/left/1/d43blue",
+            "y": 180
+        },
+        "facing=west,count=1,color=blue_l": {
+            "model": "urss:block/writable_sign/directional/left/1/d43blue",
+            "y": 270
+        },
+		
+		
+		
+		
+		
+		
+		
+		"facing=east,count=2,color=blue_r": {
+            "model": "urss:block/writable_sign/directional/right/2/d43blue",
+            "y": 90
+        },
+        "facing=north,count=2,color=blue_r": {
+            "model": "urss:block/writable_sign/directional/right/2/d43blue"
+        },
+        "facing=south,count=2,color=blue_r": {
+            "model": "urss:block/writable_sign/directional/right/2/d43blue",
+            "y": 180
+        },
+        "facing=west,count=2,color=blue_r": {
+            "model": "urss:block/writable_sign/directional/right/2/d43blue",
+            "y": 270
+        },
+		
+		
+		"facing=east,count=2,color=blue_l": {
+            "model": "urss:block/writable_sign/directional/left/2/d43blue",
+            "y": 90
+        },
+        "facing=north,count=2,color=blue_l": {
+            "model": "urss:block/writable_sign/directional/left/2/d43blue"
+        },
+        "facing=south,count=2,color=blue_l": {
+            "model": "urss:block/writable_sign/directional/left/2/d43blue",
+            "y": 180
+        },
+        "facing=west,count=2,color=blue_l": {
+            "model": "urss:block/writable_sign/directional/left/2/d43blue",
+            "y": 270
+        },
+		
+		
+		
+		
+		"facing=east,count=3,color=blue_r": {
+            "model": "urss:block/writable_sign/directional/right/3/d43blue",
+            "y": 90
+        },
+        "facing=north,count=3,color=blue_r": {
+            "model": "urss:block/writable_sign/directional/right/3/d43blue"
+        },
+        "facing=south,count=3,color=blue_r": {
+            "model": "urss:block/writable_sign/directional/right/3/d43blue",
+            "y": 180
+        },
+        "facing=west,count=3,color=blue_r": {
+            "model": "urss:block/writable_sign/directional/right/3/d43blue",
+            "y": 270
+        },
+		
+		
+		"facing=east,count=3,color=blue_l": {
+            "model": "urss:block/writable_sign/directional/left/3/d43blue",
+            "y": 90
+        },
+        "facing=north,count=3,color=blue_l": {
+            "model": "urss:block/writable_sign/directional/left/3/d43blue"
+        },
+        "facing=south,count=3,color=blue_l": {
+            "model": "urss:block/writable_sign/directional/left/3/d43blue",
+            "y": 180
+        },
+        "facing=west,count=3,color=blue_l": {
+            "model": "urss:block/writable_sign/directional/left/3/d43blue",
+            "y": 270
+        },
+		
+		
+		
+		
+		
+		"facing=east,count=4,color=blue_r": {
+            "model": "urss:block/writable_sign/directional/right/4/d43blue",
+            "y": 90
+        },
+        "facing=north,count=4,color=blue_r": {
+            "model": "urss:block/writable_sign/directional/right/4/d43blue"
+        },
+        "facing=south,count=4,color=blue_r": {
+            "model": "urss:block/writable_sign/directional/right/4/d43blue",
+            "y": 180
+        },
+        "facing=west,count=4,color=blue_r": {
+            "model": "urss:block/writable_sign/directional/right/4/d43blue",
+            "y": 270
+        },
+		
+		
+		"facing=east,count=4,color=blue_l": {
+            "model": "urss:block/writable_sign/directional/left/4/d43blue",
+            "y": 90
+        },
+        "facing=north,count=4,color=blue_l": {
+            "model": "urss:block/writable_sign/directional/left/4/d43blue"
+        },
+        "facing=south,count=4,color=blue_l": {
+            "model": "urss:block/writable_sign/directional/left/4/d43blue",
+            "y": 180
+        },
+        "facing=west,count=4,color=blue_l": {
+            "model": "urss:block/writable_sign/directional/left/4/d43blue",
+            "y": 270
+        },
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		"facing=east,count=1,color=green_r": {
+            "model": "urss:block/writable_sign/directional/right/1/d43green",
+            "y": 90
+        },
+        "facing=north,count=1,color=green_r": {
+            "model": "urss:block/writable_sign/directional/right/1/d43green"
+        },
+        "facing=south,count=1,color=green_r": {
+            "model": "urss:block/writable_sign/directional/right/1/d43green",
+            "y": 180
+        },
+        "facing=west,count=1,color=green_r": {
+            "model": "urss:block/writable_sign/directional/right/1/d43green",
+            "y": 270
+        },
+        
+        
+        "facing=east,count=1,color=green_l": {
+            "model": "urss:block/writable_sign/directional/left/1/d43green",
+            "y": 90
+        },
+        "facing=north,count=1,color=green_l": {
+            "model": "urss:block/writable_sign/directional/left/1/d43green"
+        },
+        "facing=south,count=1,color=green_l": {
+            "model": "urss:block/writable_sign/directional/left/1/d43green",
+            "y": 180
+        },
+        "facing=west,count=1,color=green_l": {
+            "model": "urss:block/writable_sign/directional/left/1/d43green",
+            "y": 270
+        },
+		
+		
+		
+		
+		
+		
+		
+		"facing=east,count=2,color=green_r": {
+            "model": "urss:block/writable_sign/directional/right/2/d43green",
+            "y": 90
+        },
+        "facing=north,count=2,color=green_r": {
+            "model": "urss:block/writable_sign/directional/right/2/d43green"
+        },
+        "facing=south,count=2,color=green_r": {
+            "model": "urss:block/writable_sign/directional/right/2/d43green",
+            "y": 180
+        },
+        "facing=west,count=2,color=green_r": {
+            "model": "urss:block/writable_sign/directional/right/2/d43green",
+            "y": 270
+        },
+		
+		
+		"facing=east,count=2,color=green_l": {
+            "model": "urss:block/writable_sign/directional/left/2/d43green",
+            "y": 90
+        },
+        "facing=north,count=2,color=green_l": {
+            "model": "urss:block/writable_sign/directional/left/2/d43green"
+        },
+        "facing=south,count=2,color=green_l": {
+            "model": "urss:block/writable_sign/directional/left/2/d43green",
+            "y": 180
+        },
+        "facing=west,count=2,color=green_l": {
+            "model": "urss:block/writable_sign/directional/left/2/d43green",
+            "y": 270
+        },
+		
+		
+		
+		
+		"facing=east,count=3,color=green_r": {
+            "model": "urss:block/writable_sign/directional/right/3/d43green",
+            "y": 90
+        },
+        "facing=north,count=3,color=green_r": {
+            "model": "urss:block/writable_sign/directional/right/3/d43green"
+        },
+        "facing=south,count=3,color=green_r": {
+            "model": "urss:block/writable_sign/directional/right/3/d43green",
+            "y": 180
+        },
+        "facing=west,count=3,color=green_r": {
+            "model": "urss:block/writable_sign/directional/right/3/d43green",
+            "y": 270
+        },
+		
+		
+		"facing=east,count=3,color=green_l": {
+            "model": "urss:block/writable_sign/directional/left/3/d43green",
+            "y": 90
+        },
+        "facing=north,count=3,color=green_l": {
+            "model": "urss:block/writable_sign/directional/left/3/d43green"
+        },
+        "facing=south,count=3,color=green_l": {
+            "model": "urss:block/writable_sign/directional/left/3/d43green",
+            "y": 180
+        },
+        "facing=west,count=3,color=green_l": {
+            "model": "urss:block/writable_sign/directional/left/3/d43green",
+            "y": 270
+        },
+		
+		
+		
+		
+		
+		"facing=east,count=4,color=green_r": {
+            "model": "urss:block/writable_sign/directional/right/4/d43green",
+            "y": 90
+        },
+        "facing=north,count=4,color=green_r": {
+            "model": "urss:block/writable_sign/directional/right/4/d43green"
+        },
+        "facing=south,count=4,color=green_r": {
+            "model": "urss:block/writable_sign/directional/right/4/d43green",
+            "y": 180
+        },
+        "facing=west,count=4,color=green_r": {
+            "model": "urss:block/writable_sign/directional/right/4/d43green",
+            "y": 270
+        },
+		
+		
+		"facing=east,count=4,color=green_l": {
+            "model": "urss:block/writable_sign/directional/left/4/d43green",
+            "y": 90
+        },
+        "facing=north,count=4,color=green_l": {
+            "model": "urss:block/writable_sign/directional/left/4/d43green"
+        },
+        "facing=south,count=4,color=green_l": {
+            "model": "urss:block/writable_sign/directional/left/4/d43green",
+            "y": 180
+        },
+        "facing=west,count=4,color=green_l": {
+            "model": "urss:block/writable_sign/directional/left/4/d43green",
+            "y": 270
+        }
+		
+    }
+} 
+

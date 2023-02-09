@@ -1,0 +1,7 @@
+{
+   "parent": "urss:block/writable_sign/4_template",
+   "textures": {
+       "sign": "urss:blocks/d61_blue",
+       "sign_back": "urss:blocks/grey_64x16"
+   }
+}

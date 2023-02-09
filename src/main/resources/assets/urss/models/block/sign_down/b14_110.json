@@ -1,0 +1,7 @@
+{
+   "parent": "urss:block/sign_down_template",
+   "textures": {
+       "sign": "urss:blocks/b14_110",
+       "sign_back": "urss:blocks/grey_circle"
+   }
+}

@@ -1,0 +1,7 @@
+{
+   "parent": "urss:block/sign_template_sh",
+   "textures": {
+       "sign": "urss:blocks/m2",
+       "sign_back": "urss:blocks/grey_64x23"
+   }
+}
