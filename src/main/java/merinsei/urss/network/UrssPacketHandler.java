@@ -1,7 +1,5 @@
 package merinsei.urss.network;
 
-import com.mojang.logging.LogUtils;
-
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.fml.common.Mod;
@@ -22,37 +20,37 @@ public class UrssPacketHandler {
 	
 	
 	public static FriendlyByteBuf encode(ToServerWritableRoadSignMessagePacket pkt, FriendlyByteBuf fbb) {
-		LogUtils.getLogger().info("Encoding packet...");
 		fbb.writeUtf(pkt.messages[0]);
 		fbb.writeUtf(pkt.messages[1]);
 		fbb.writeUtf(pkt.messages[2]);
 		fbb.writeUtf(pkt.messages[3]);
+		fbb.writeUtf(pkt.color);
 		return fbb;
 		
 	}
 	
 	public static ToServerWritableRoadSignMessagePacket decodeCTS(FriendlyByteBuf fbb) {
-		LogUtils.getLogger().info("Decoding packet...");
 		String[] messages = { fbb.readUtf(), fbb.readUtf(), fbb.readUtf(), fbb.readUtf() };
-		ToServerWritableRoadSignMessagePacket pkt = new ToServerWritableRoadSignMessagePacket(messages);
+		String color = fbb.readUtf();
+		ToServerWritableRoadSignMessagePacket pkt = new ToServerWritableRoadSignMessagePacket(messages, color);
 		return pkt;
 	}
 	
 	
 	public static FriendlyByteBuf encode(ToClientWritableRoadSignMessagePacket pkt, FriendlyByteBuf fbb) {
-		LogUtils.getLogger().info("Encoding packet...");
 		fbb.writeUtf(pkt.messages[0]);
 		fbb.writeUtf(pkt.messages[1]);
 		fbb.writeUtf(pkt.messages[2]);
 		fbb.writeUtf(pkt.messages[3]);
+		fbb.writeUtf(pkt.color);
 		return fbb;
 		
 	}
 	
 	public static ToClientWritableRoadSignMessagePacket decodeSTC(FriendlyByteBuf fbb) {
-		LogUtils.getLogger().info("Decoding packet...");
 		String[] messages = { fbb.readUtf(), fbb.readUtf(), fbb.readUtf(), fbb.readUtf() };
-		ToClientWritableRoadSignMessagePacket pkt = new ToClientWritableRoadSignMessagePacket(messages);
+		String color = fbb.readUtf();
+		ToClientWritableRoadSignMessagePacket pkt = new ToClientWritableRoadSignMessagePacket(messages, color);
 		return pkt;
 	}
 	
@@ -61,29 +59,27 @@ public class UrssPacketHandler {
 	
 	
 	public static FriendlyByteBuf encode(ToServerWritableERoadSignMessagePacket pkt, FriendlyByteBuf fbb) {
-		LogUtils.getLogger().info("Encoding packet...");
 		fbb.writeUtf(pkt.message);
+		fbb.writeUtf(pkt.color);
 		return fbb;
 		
 	}
 	
 	public static ToServerWritableERoadSignMessagePacket decodeCTS_E(FriendlyByteBuf fbb) {
-		LogUtils.getLogger().info("Decoding packet...");
-		ToServerWritableERoadSignMessagePacket pkt = new ToServerWritableERoadSignMessagePacket(fbb.readUtf());
+		ToServerWritableERoadSignMessagePacket pkt = new ToServerWritableERoadSignMessagePacket(fbb.readUtf(), fbb.readUtf());
 		return pkt;
 	}
 	
 	
 	public static FriendlyByteBuf encode(ToClientWritableERoadSignMessagePacket pkt, FriendlyByteBuf fbb) {
-		LogUtils.getLogger().info("Encoding packet...");
 		fbb.writeUtf(pkt.message);
+		fbb.writeUtf(pkt.color);
 		return fbb;
 		
 	}
 	
 	public static ToClientWritableERoadSignMessagePacket decodeSTC_E(FriendlyByteBuf fbb) {
-		LogUtils.getLogger().info("Decoding packet...");
-		ToClientWritableERoadSignMessagePacket pkt = new ToClientWritableERoadSignMessagePacket(fbb.readUtf());
+		ToClientWritableERoadSignMessagePacket pkt = new ToClientWritableERoadSignMessagePacket(fbb.readUtf(), fbb.readUtf());
 		return pkt;
 	}
 	

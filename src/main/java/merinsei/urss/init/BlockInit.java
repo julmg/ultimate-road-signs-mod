@@ -4,6 +4,7 @@ import java.util.function.Supplier;
 
 import merinsei.urss.Urss;
 import merinsei.urss.block.*;
+import merinsei.urss.block.BlinkingTrafficLight.TrafficLightSize;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
@@ -256,10 +257,10 @@ public class BlockInit {
     public static final RegistryObject<Block> WSIGN_D61 = BLOCKS.register("writablesign_d61", () -> new WritableDirectionRoadSign());
     public static final RegistryObject<Block> WSIGN_E = BLOCKS.register("writablesign_e", () -> new WritableERoadSign());
     
-    public static final RegistryObject<Block> TRAFFICLIGHT_1 = BLOCKS.register("trafficlight_1", () -> new TrafficLight());
-    public static final RegistryObject<Block> TRAFFICLIGHT_2H = BLOCKS.register("trafficlight_2h", () -> new TrafficLight());
-    public static final RegistryObject<Block> TRAFFICLIGHT_3V = BLOCKS.register("trafficlight_3v", () -> new TrafficLight());
-    public static final RegistryObject<Block> TRAFFICLIGHT_3H = BLOCKS.register("trafficlight_3h", () -> new TrafficLight());
+    public static final RegistryObject<Block> TRAFFICLIGHT_1 = BLOCKS.register("trafficlight_1", () -> new BlinkingTrafficLight(TrafficLightSize.ONE));
+    public static final RegistryObject<Block> TRAFFICLIGHT_2H = BLOCKS.register("trafficlight_2h", () -> new BlinkingTrafficLight(TrafficLightSize.TWO_H));
+    //public static final RegistryObject<Block> TRAFFICLIGHT_3V = BLOCKS.register("trafficlight_3v", () -> new BlinkingTrafficLight(TrafficLightSize.THREE_V));
+    //public static final RegistryObject<Block> TRAFFICLIGHT_3H = BLOCKS.register("trafficlight_3h", () -> new BlinkingTrafficLight(TrafficLightSize.THREE_H));
 
     
     

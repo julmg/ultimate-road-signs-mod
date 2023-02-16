@@ -3,13 +3,11 @@ package merinsei.urss.client.gui;
 import java.util.function.Supplier;
 
 import com.mojang.blaze3d.vertex.PoseStack;
-import com.mojang.logging.LogUtils;
-
 import merinsei.urss.network.UrssPacketHandler;
+import merinsei.urss.block.WritableERoadSign;
+import merinsei.urss.block.WritableERoadSign.FrESignColor;
 import merinsei.urss.network.ToClientWritableERoadSignMessagePacket;
-import merinsei.urss.network.ToClientWritableRoadSignMessagePacket;
 import merinsei.urss.network.ToServerWritableERoadSignMessagePacket;
-import merinsei.urss.network.ToServerWritableRoadSignMessagePacket;
 import net.minecraft.client.gui.components.Button;
 import net.minecraft.client.gui.components.EditBox;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
@@ -21,7 +19,29 @@ import net.minecraftforge.network.NetworkEvent;
 public class WritableERoadSignBlockEntityScreen extends AbstractContainerScreen<WritableERoadSignBlockEntityMenu> {
 
 	private static String message = "";
+	private static WritableERoadSign.FrESignColor color = FrESignColor.RED;
 	private static EditBox editbox;
+	
+	Button colorbtn = new Button(this.width / 2, this.height / 5 + 170, 100, 20, Component.literal("Color : "+color.getSerializedName().toUpperCase()), (p_169820_) -> {
+		switch(color) {
+		case CYAN:
+			color = FrESignColor.GREEN;
+			break;
+		case GREEN:
+			color = FrESignColor.RED;
+			break;
+		case RED:
+			color = FrESignColor.YELLOW;
+			break;
+		case YELLOW:
+			color = FrESignColor.CYAN;
+			break;
+		default:
+			break;
+		
+		}
+		switchColorBtnMsg();
+	});
 	
 	public WritableERoadSignBlockEntityScreen(WritableERoadSignBlockEntityMenu menu, Inventory playerInventory, Component title) {
 		super(menu, playerInventory, title);
@@ -42,18 +62,22 @@ public class WritableERoadSignBlockEntityScreen extends AbstractContainerScreen<
 		this.addRenderableWidget(new Button(this.width / 2 - 100, this.height / 5 + 170, 100, 20, CommonComponents.GUI_DONE, (p_169820_) -> {
 			getEditBoxesValues();
 			
-			ToServerWritableERoadSignMessagePacket pkt = new ToServerWritableERoadSignMessagePacket(message);
+			ToServerWritableERoadSignMessagePacket pkt = new ToServerWritableERoadSignMessagePacket(message, color.getSerializedName().toUpperCase());
 			UrssPacketHandler.INSTANCE.sendToServer(pkt);
 			
 			this.minecraft.gameMode.handleInventoryButtonClick((this.menu).containerId, 1);
 			this.minecraft.player.closeContainer();
 		}));
-		this.addRenderableWidget(new Button(this.width / 2, this.height / 5 + 170, 100, 20, Component.literal("Color : "), (p_169820_) -> {
-			//TODO send packet to server :)
-		}));
+				
+		this.addRenderableWidget(colorbtn);
 
 	}
 	
+	private void switchColorBtnMsg() {
+		colorbtn.setMessage(Component.literal("Color : "+ color.getSerializedName().toUpperCase()));
+		
+	}
+
 	private static void getEditBoxesValues() {
 		message = WritableERoadSignBlockEntityScreen.editbox.getValue();
 	}
@@ -71,7 +95,6 @@ public class WritableERoadSignBlockEntityScreen extends AbstractContainerScreen<
 
 	@Override
 	public void removed() {
-		LogUtils.getLogger().info("REMOVED()");
 		super.removed();
 
 	}
@@ -100,15 +123,13 @@ public class WritableERoadSignBlockEntityScreen extends AbstractContainerScreen<
 	
 	@Override
 	public boolean mouseClicked(double p_97748_, double p_97749_, int p_97750_) {
-		
-		
 		return super.mouseClicked(p_97748_, p_97749_, p_97750_);
 		
 	}
 	
 	public static void handlePacket(ToClientWritableERoadSignMessagePacket msg, Supplier<NetworkEvent.Context> ctx) {
-		LogUtils.getLogger().info("Packet content : "+msg.message);
 		message = msg.message;
+		color = FrESignColor.valueOf(msg.color.toUpperCase());
 		setEditBoxesValues();
 	}
 	

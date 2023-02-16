@@ -18,9 +18,19 @@ import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.EnumProperty;
 import net.minecraft.world.phys.BlockHitResult;
 
-public class TrafficLight extends Pole implements EntityBlock {
+public class BlinkingTrafficLight extends Pole implements EntityBlock {
 	
-	public enum TrafficType implements StringRepresentable {
+	public enum TrafficLightSize implements StringRepresentable {
+		
+		ONE, TWO_H, TWO_V, THREE_H, THREE_V;
+
+		@Override
+		public String getSerializedName() {
+			return this.toString().toLowerCase();
+		}
+	}
+	
+	public enum BlinkingTrafficLightColor implements StringRepresentable {
 		
 		BLINK_RED, BLINK_ORANGE;
 
@@ -31,10 +41,13 @@ public class TrafficLight extends Pole implements EntityBlock {
 	}
 	
 	
-	public static final EnumProperty<TrafficType> TRAFFICTYPE = EnumProperty.create("type", TrafficType.class);
+	public static final EnumProperty<BlinkingTrafficLightColor> TRAFFICTYPE = EnumProperty.create("color", BlinkingTrafficLightColor.class);
 	
-    public TrafficLight() {
+	public TrafficLightSize size;
+	
+    public BlinkingTrafficLight(TrafficLightSize size) {
         super(8);
+        this.size = size;
     }
     
     @Override
@@ -50,11 +63,13 @@ public class TrafficLight extends Pole implements EntityBlock {
 			level.playSound(player, pos, SoundEvents.ANVIL_PLACE, SoundSource.BLOCKS, 1.0f, 1.0f);
 			switch(state.getValue(TRAFFICTYPE)) {
 			case BLINK_ORANGE:
-				level.setBlock(pos, state.setValue(TRAFFICTYPE, TrafficType.BLINK_RED), UPDATE_ALL);
+				level.setBlock(pos, state.setValue(TRAFFICTYPE, BlinkingTrafficLightColor.BLINK_RED), UPDATE_ALL);
 				break;
 			case BLINK_RED:
-				level.setBlock(pos, state.setValue(TRAFFICTYPE, TrafficType.BLINK_ORANGE), UPDATE_ALL);
+				level.setBlock(pos, state.setValue(TRAFFICTYPE, BlinkingTrafficLightColor.BLINK_ORANGE), UPDATE_ALL);
 				break;
+				
+				
 			default:
 				break;
 			}

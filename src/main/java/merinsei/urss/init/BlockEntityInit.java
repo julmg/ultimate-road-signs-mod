@@ -30,7 +30,6 @@ public class BlockEntityInit {
             () -> BlockEntityType.Builder.of(
             		TrafficLightBlockEntity::new, 
             		BlockInit.TRAFFICLIGHT_1.get(),
-            		BlockInit.TRAFFICLIGHT_2H.get(),
-            		BlockInit.TRAFFICLIGHT_3H.get())
+            		BlockInit.TRAFFICLIGHT_2H.get())
             .build(null));
 }

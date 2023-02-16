@@ -1,12 +1,11 @@
 package merinsei.urss.block.entity.renderer;
 
 import com.mojang.blaze3d.vertex.PoseStack;
-import com.mojang.logging.LogUtils;
 import com.mojang.math.Vector3f;
 
 import merinsei.urss.block.RoadSign;
-import merinsei.urss.block.TrafficLight;
-import merinsei.urss.block.TrafficLight.TrafficType;
+import merinsei.urss.block.BlinkingTrafficLight;
+import merinsei.urss.block.BlinkingTrafficLight.BlinkingTrafficLightColor;
 import merinsei.urss.block.entity.TrafficLightBlockEntity;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.Minecraft;
@@ -21,6 +20,7 @@ import net.minecraft.world.level.block.state.BlockState;
 
 public class TrafficLightBlockEntityRenderer implements BlockEntityRenderer<TrafficLightBlockEntity> {
 
+	private float TWOLIGHT_HORIZONTALOFFSET = 8.5f;
 	
 	
 	public TrafficLightBlockEntityRenderer(BlockEntityRendererProvider.Context context) {
@@ -50,14 +50,42 @@ public class TrafficLightBlockEntityRenderer implements BlockEntityRenderer<Traf
 		Font f = Minecraft.getInstance().font;
 		MutableComponent mc = Component.empty();
 		
-		if(bs.getValue(TrafficLight.TRAFFICTYPE)==TrafficType.BLINK_ORANGE) {
+		if(bs.getValue(BlinkingTrafficLight.TRAFFICTYPE)==BlinkingTrafficLightColor.BLINK_ORANGE) {
 			mc = Component.literal("⬤").withStyle(ChatFormatting.GOLD);
 		} else {
 			mc = Component.literal("⬤").withStyle(ChatFormatting.RED);
 		}
+		
+		boolean twoBlinks = false;
+		float b1offsetx = 0f, b1offsety = 0f, b2offsetx = 0f, b2offsety = 0f;
+		
+		if(bs.getBlock() instanceof BlinkingTrafficLight btl) {
+			switch(btl.size) {
+			case ONE:
+				break;
+			case THREE_H:
+				break;
+			case THREE_V:
+				break;
+			case TWO_H:
+				twoBlinks=true;
+				b1offsetx=TWOLIGHT_HORIZONTALOFFSET;
+				b2offsetx=-TWOLIGHT_HORIZONTALOFFSET;
+				break;
+			case TWO_V:
+				break;
+			default:
+				break;
+			}
+		}
+		
 		if(blockEntity.getLevel().getGameTime() % 30 < 15) {
+			poseStack.translate(b1offsetx, b1offsety, 0f);
 			f.drawInBatch(mc, 1, 0f, -1, false, poseStack.last().pose(), bufferSource, false, packedLight, packedLight);
-		}		
+		} else if(twoBlinks) {
+			poseStack.translate(b2offsetx, b2offsety, 0f);
+			f.drawInBatch(mc, 1, 0f, -1, false, poseStack.last().pose(), bufferSource, false, packedLight, packedLight);
+		}
 		
 		poseStack.popPose();
 		

@@ -81,7 +81,7 @@ public class WritableERoadSign extends RoadSign implements EntityBlock {
 			if(blockEntity instanceof WritableERoadSignBlockEntity wersbe) {
 				
 			    NetworkHooks.openScreen(serverPlayer, state.getMenuProvider(level, pos));
-			    UrssPacketHandler.INSTANCE.send(PacketDistributor.PLAYER.with(()->serverPlayer), new ToClientWritableERoadSignMessagePacket(wersbe.message));
+			    UrssPacketHandler.INSTANCE.send(PacketDistributor.PLAYER.with(()->serverPlayer), new ToClientWritableERoadSignMessagePacket(wersbe.message, state.getValue(COLOR).getSerializedName()));
 			}
 			
 		}

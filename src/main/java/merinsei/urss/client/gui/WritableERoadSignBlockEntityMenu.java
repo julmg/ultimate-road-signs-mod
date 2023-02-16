@@ -2,17 +2,11 @@ package merinsei.urss.client.gui;
 
 import java.util.function.Supplier;
 
-import com.mojang.logging.LogUtils;
-
-import merinsei.urss.block.WritableDirectionRoadSign;
+import merinsei.urss.block.WritableERoadSign;
 import merinsei.urss.block.entity.WritableERoadSignBlockEntity;
-import merinsei.urss.block.entity.WritableRoadSignBlockEntity;
 import merinsei.urss.init.MenuInit;
 import merinsei.urss.network.ToServerWritableERoadSignMessagePacket;
-import merinsei.urss.network.ToServerWritableRoadSignMessagePacket;
 import net.minecraft.core.BlockPos;
-import net.minecraft.network.FriendlyByteBuf;
-import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
@@ -47,13 +41,9 @@ public class WritableERoadSignBlockEntityMenu extends AbstractContainerMenu {
 	
 	@Override
     public boolean clickMenuButton(Player player, int button) {
-		LogUtils.getLogger().info("Clicked button " + button); 
         if(button == 1) {
-        	
-            
             return true; 
         }
-		// ... other button etc	...
 		return false;
     }
     
@@ -72,17 +62,20 @@ public class WritableERoadSignBlockEntityMenu extends AbstractContainerMenu {
 		
 	    ctx.get().enqueueWork(() -> {
         	BlockEntity tile = currentLevel.getBlockEntity(currentPos);
-        	LogUtils.getLogger().info("Tile class  : "+tile.getClass().toString());
         	if (tile instanceof WritableERoadSignBlockEntity){
         		BlockState state = currentLevel.getBlockState(currentPos);
         		
         		
 	            ((WritableERoadSignBlockEntity) tile).message = msg.message;
-	            currentLevel.sendBlockUpdated(currentPos, 
-	            		currentLevel.getBlockState(currentPos), 
-	            		currentLevel.getBlockState(currentPos), 3);
 	            
-	            tile.setChanged();
+	            BlockState nstate = state.setValue(WritableERoadSign.COLOR, WritableERoadSign.FrESignColor.valueOf(msg.color.toUpperCase()));
+	            
+	            currentLevel.setBlock(currentPos, nstate, 3);
+	            currentLevel.sendBlockUpdated(currentPos, 
+	            		state, 
+	            		nstate, 3);
+	            
+	            ((WritableERoadSignBlockEntity) tile).setChanged();
 	        }
         	
 	    });
