@@ -24,6 +24,9 @@ public class WritableERoadSignBlockEntityScreen extends AbstractContainerScreen<
 	
 	Button colorbtn = new Button(this.width / 2, this.height / 5 + 170, 100, 20, Component.literal("Color : "+color.getSerializedName().toUpperCase()), (p_169820_) -> {
 		switch(color) {
+		case WHITE:
+			color = FrESignColor.CYAN;
+			break;
 		case CYAN:
 			color = FrESignColor.GREEN;
 			break;
@@ -34,7 +37,7 @@ public class WritableERoadSignBlockEntityScreen extends AbstractContainerScreen<
 			color = FrESignColor.YELLOW;
 			break;
 		case YELLOW:
-			color = FrESignColor.CYAN;
+			color = FrESignColor.WHITE;
 			break;
 		default:
 			break;

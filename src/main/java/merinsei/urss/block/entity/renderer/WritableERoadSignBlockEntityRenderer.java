@@ -38,7 +38,7 @@ public class WritableERoadSignBlockEntityRenderer implements BlockEntityRenderer
 		WritableERoadSign.FrESignColor signcolor = blockEntity.getBlockState().getValue(WritableERoadSign.COLOR);
 		
 		ChatFormatting textcolor = ChatFormatting.WHITE;
-		if(signcolor==WritableERoadSign.FrESignColor.YELLOW) {
+		if(signcolor==WritableERoadSign.FrESignColor.YELLOW || signcolor==WritableERoadSign.FrESignColor.WHITE ) {
 			textcolor = ChatFormatting.BLACK;
 		}
 		
