@@ -229,6 +229,16 @@
 	"block.urss.sign_m8h": "'Sauf PMR' small French road sign",
 	"block.urss.sign_m9c": "'Cédez le passage' small French road sign",
 	"block.urss.sign_m9d": "'Dos d'âne' small French road sign",
-	"block.urss.sign_m9v2": "'Sauf vélos' small French road sign"
+	"block.urss.sign_m9v2": "'Sauf vélos' small French road sign",
+	
+	"block.urss.trafficlight_1": "1-light blinking orange/red traffic light",
+	"block.urss.trafficlight_2h": "2-lights blinking orange/red traffic light",
+	"block.urss.trafficlight_3h": "Horizontal traffic light",
+	"block.urss.trafficlight_3v": "Vertical traffic light",
+	
+	"block.urss.writablesign_d21": "'Panneau directionnel - flèche' French road sign (writable)",
+	"block.urss.writablesign_d43": "'Panneau directionnel - présignalisation' French road sign (writable)",
+	"block.urss.writablesign_d61": "'Panneau directionnel - confirmation' French road sign (writable)",
+	"block.urss.writablesign_e": "'Cartouche' small French road sign (writable)"
 	
 } 
