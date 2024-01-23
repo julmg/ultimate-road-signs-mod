@@ -1,35 +1,18 @@
 {
     "variants": {
-        "facing=east,color=blink_red": {
-            "model": "urss:block/traffic_light/1",
+        "facing=east": {
+            "model": "urss:block/traffic_light/3v",
             "y": 90
         },
-        "facing=north,color=blink_red": {
-            "model": "urss:block/traffic_light/1"
+        "facing=north": {
+            "model": "urss:block/traffic_light/3v"
         },
-        "facing=south,color=blink_red": {
-            "model": "urss:block/traffic_light/1",
+        "facing=south": {
+            "model": "urss:block/traffic_light/3v",
             "y": 180
         },
-        "facing=west,color=blink_red": {
-            "model": "urss:block/traffic_light/1",
-            "y": 270
-        },
-        
-        
-        "facing=east,color=blink_orange": {
-            "model": "urss:block/traffic_light/1",
-            "y": 90
-        },
-        "facing=north,color=blink_orange": {
-            "model": "urss:block/traffic_light/1"
-        },
-        "facing=south,color=blink_orange": {
-            "model": "urss:block/traffic_light/1",
-            "y": 180
-        },
-        "facing=west,color=blink_orange": {
-            "model": "urss:block/traffic_light/1",
+        "facing=west": {
+            "model": "urss:block/traffic_light/3v",
             "y": 270
         }
 		

@@ -259,8 +259,8 @@ public class BlockInit {
     
     public static final RegistryObject<Block> TRAFFICLIGHT_1 = BLOCKS.register("trafficlight_1", () -> new BlinkingTrafficLight(TrafficLightSize.ONE));
     public static final RegistryObject<Block> TRAFFICLIGHT_2H = BLOCKS.register("trafficlight_2h", () -> new BlinkingTrafficLight(TrafficLightSize.TWO_H));
-    //public static final RegistryObject<Block> TRAFFICLIGHT_3V = BLOCKS.register("trafficlight_3v", () -> new BlinkingTrafficLight(TrafficLightSize.THREE_V));
-    //public static final RegistryObject<Block> TRAFFICLIGHT_3H = BLOCKS.register("trafficlight_3h", () -> new BlinkingTrafficLight(TrafficLightSize.THREE_H));
+    public static final RegistryObject<Block> TRAFFICLIGHT_3V = BLOCKS.register("trafficlight_3v", () -> new BlinkingTrafficLight(TrafficLightSize.THREE_V));
+    public static final RegistryObject<Block> TRAFFICLIGHT_3H = BLOCKS.register("trafficlight_3h", () -> new BlinkingTrafficLight(TrafficLightSize.THREE_H));
 
     
     

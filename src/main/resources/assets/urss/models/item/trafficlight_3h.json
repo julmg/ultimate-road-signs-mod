@@ -2,6 +2,6 @@
     "parent": "item/generated",
     "textures": {
 		"layer0": "urss:items/parent_pole",
-		"layer1": "urss:items/traffic_light3"
+		"layer1": "urss:items/traffic_light3h"
     }
 } 

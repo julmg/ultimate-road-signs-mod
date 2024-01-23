@@ -14,23 +14,6 @@
         "facing=west": {
             "model": "urss:block/traffic_light/3h",
             "y": 270
-        },
-        
-        
-        "facing=east": {
-            "model": "urss:block/traffic_light/3h",
-            "y": 90
-        },
-        "facing=north": {
-            "model": "urss:block/traffic_light/3h"
-        },
-        "facing=south": {
-            "model": "urss:block/traffic_light/3h",
-            "y": 180
-        },
-        "facing=west": {
-            "model": "urss:block/traffic_light/3h",
-            "y": 270
         }
 		
     }

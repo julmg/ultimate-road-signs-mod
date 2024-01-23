@@ -20,7 +20,8 @@ import net.minecraft.world.level.block.state.BlockState;
 
 public class TrafficLightBlockEntityRenderer implements BlockEntityRenderer<TrafficLightBlockEntity> {
 
-	private float TWOLIGHT_HORIZONTALOFFSET = 8.5f;
+	private static float LIGHT_OFFSET_H = 8.5f;
+	private static float LIGHT_OFFSET_V = 10.5f;
 	
 	
 	public TrafficLightBlockEntityRenderer(BlockEntityRendererProvider.Context context) {
@@ -56,36 +57,79 @@ public class TrafficLightBlockEntityRenderer implements BlockEntityRenderer<Traf
 			mc = Component.literal("⬤").withStyle(ChatFormatting.RED);
 		}
 		
-		boolean twoBlinks = false;
-		float b1offsetx = 0f, b1offsety = 0f, b2offsetx = 0f, b2offsety = 0f;
+		int numlight = 1;
+		float b1offsetx = 0f, b1offsety = 0f, b2offsetx = 0f, b2offsety = 0f, b3offsetx = 0f, b3offsety = 0f;
 		
 		if(bs.getBlock() instanceof BlinkingTrafficLight btl) {
 			switch(btl.size) {
 			case ONE:
 				break;
 			case THREE_H:
+				numlight = 3;
+				b1offsetx=LIGHT_OFFSET_H;
+				b3offsetx=-LIGHT_OFFSET_H;
 				break;
 			case THREE_V:
+				numlight = 3;
+				b2offsety=-LIGHT_OFFSET_V;
+				b3offsety=-2*LIGHT_OFFSET_V;
 				break;
 			case TWO_H:
-				twoBlinks=true;
-				b1offsetx=TWOLIGHT_HORIZONTALOFFSET;
-				b2offsetx=-TWOLIGHT_HORIZONTALOFFSET;
+				numlight = 2;
+				b1offsetx=LIGHT_OFFSET_H;
+				b2offsetx=-LIGHT_OFFSET_H;
 				break;
 			case TWO_V:
+				numlight = 2;
 				break;
 			default:
 				break;
 			}
 		}
 		
-		if(blockEntity.getLevel().getGameTime() % 30 < 15) {
-			poseStack.translate(b1offsetx, b1offsety, 0f);
-			f.drawInBatch(mc, 1, 0f, -1, false, poseStack.last().pose(), bufferSource, false, packedLight, packedLight);
-		} else if(twoBlinks) {
-			poseStack.translate(b2offsetx, b2offsety, 0f);
-			f.drawInBatch(mc, 1, 0f, -1, false, poseStack.last().pose(), bufferSource, false, packedLight, packedLight);
+		long gtperiod = blockEntity.getLevel().getGameTime();
+		
+		switch(numlight) {
+		case 1:
+			if(gtperiod % 30 < 15) {
+				f.drawInBatch(mc, 1, 0f, -1, false, poseStack.last().pose(), bufferSource, false, packedLight, packedLight);
+			}
+			break;
+		case 2:
+			if(gtperiod % 30 < 15) {
+				poseStack.translate(b1offsetx, b1offsety, 0f);
+				f.drawInBatch(mc, 1, 0f, -1, false, poseStack.last().pose(), bufferSource, false, packedLight, packedLight);
+			} else {
+				poseStack.translate(b2offsetx, b2offsety, 0f);
+				f.drawInBatch(mc, 1, 0f, -1, false, poseStack.last().pose(), bufferSource, false, packedLight, packedLight);
+			}
+			
+			break;
+		case 3:
+			if(bs.getValue(BlinkingTrafficLight.TRAFFICTYPE)==BlinkingTrafficLightColor.BLINK_ORANGE) {
+				gtperiod+=500;
+			}
+			if(gtperiod % 1000 < 400) {
+				poseStack.translate(b1offsetx, b1offsety, 0f);
+				mc=mc.withStyle(ChatFormatting.GREEN);
+				f.drawInBatch(mc, 1, 0f, -1, false, poseStack.last().pose(), bufferSource, false, packedLight, packedLight);
+			} else if(gtperiod % 1000 < 500) {
+				poseStack.translate(b2offsetx, b2offsety, 0f);
+				mc=mc.withStyle(ChatFormatting.GOLD);
+				f.drawInBatch(mc, 1, 0f, -1, false, poseStack.last().pose(), bufferSource, false, packedLight, packedLight);
+			} else {
+				poseStack.translate(b3offsetx, b3offsety, 0f);
+				mc=mc.withStyle(ChatFormatting.RED);
+				f.drawInBatch(mc, 1, 0f, -1, false, poseStack.last().pose(), bufferSource, false, packedLight, packedLight);
+			}
+			
+			
+			break;
+		default:
+			break;
 		}
+		
+		
 		
 		poseStack.popPose();
 		
