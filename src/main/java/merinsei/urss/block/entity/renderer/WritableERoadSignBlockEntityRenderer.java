@@ -21,8 +21,6 @@ import net.minecraft.resources.ResourceLocation;
 
 public class WritableERoadSignBlockEntityRenderer implements BlockEntityRenderer<WritableERoadSignBlockEntity> {
 
-	private static final ResourceLocation FRSIGN_FONT = new ResourceLocation(Urss.MODID, "caracteres");
-
 	
 	public WritableERoadSignBlockEntityRenderer(BlockEntityRendererProvider.Context context) {
 	}
@@ -42,6 +40,8 @@ public class WritableERoadSignBlockEntityRenderer implements BlockEntityRenderer
 			textcolor = ChatFormatting.BLACK;
 		}
 		
+		Style style = Style.EMPTY.withColor(textcolor).withBold(true);
+		
 		poseStack.translate(0.5f, 0.125f, 0.5f); //Put text at pole position
 		
 		switch(direction) {
@@ -54,13 +54,15 @@ public class WritableERoadSignBlockEntityRenderer implements BlockEntityRenderer
 		poseStack.translate(0f, 0.0375f, -0.075f); //A bit forward to get to the sign, depending on facing direction
 		poseStack.scale(-0.015F, -0.015F, -0.015F);
 		
+		poseStack.scale(0.8F, 0.8F, 0.8F);
+		
 		
 		Font f = Minecraft.getInstance().font;
 		float f2 = 0;
 		MutableComponent mc = Component.empty();
 		
 		f2 = (float)(-f.width(blockEntity.message) / 2);
-		mc = Component.literal(blockEntity.message).withStyle(Style.EMPTY.withFont(FRSIGN_FONT).withColor(textcolor));
+		mc = Component.literal(blockEntity.message).withStyle(style);
 		f.drawInBatch(mc, f2, 0f, -1, false, poseStack.last().pose(), bufferSource, false, packedLight, packedLight);
 		
 		

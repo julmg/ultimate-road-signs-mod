@@ -21,8 +21,6 @@ import net.minecraft.resources.ResourceLocation;
 
 public class WritableRoadSignBlockEntityRenderer implements BlockEntityRenderer<WritableRoadSignBlockEntity> {
 
-	private static final ResourceLocation FRSIGN_FONT = new ResourceLocation(Urss.MODID, "caracteres");
-
 	
 	public WritableRoadSignBlockEntityRenderer(BlockEntityRendererProvider.Context context) {
 	}
@@ -43,6 +41,8 @@ public class WritableRoadSignBlockEntityRenderer implements BlockEntityRenderer<
 			textcolor = ChatFormatting.BLACK;
 		}
 		
+		Style style = Style.EMPTY.withColor(textcolor).withBold(true);
+		
 		poseStack.translate(0.5f, 0.9125f, 0.5f); //Put text at pole position
 		
 		switch(direction) {
@@ -55,6 +55,8 @@ public class WritableRoadSignBlockEntityRenderer implements BlockEntityRenderer<
 		poseStack.translate(0f, 0f, -0.075f); //A bit forward to get to the sign, depending on facing direction
 		poseStack.scale(-0.0125F, -0.0125F, -0.0125F);
 		
+		poseStack.scale(0.8F, 0.8F, 0.8F);
+		
 		
 		
 		Font f = Minecraft.getInstance().font;
@@ -62,10 +64,34 @@ public class WritableRoadSignBlockEntityRenderer implements BlockEntityRenderer<
 		MutableComponent mc = Component.empty();
 		
 		for(int i=0;i<signCount;i++) {
-			f2 = (float)(-f.width(blockEntity.messages[i]) / 2);
-			mc = Component.literal(blockEntity.messages[i]).withStyle(Style.EMPTY.withFont(FRSIGN_FONT).withColor(textcolor));
-			f.drawInBatch(mc, f2, 0f, -1, false, poseStack.last().pose(), bufferSource, false, packedLight, packedLight);
-			poseStack.translate(0f, 19.95f, 0f);
+			if(blockEntity.messages[i].contains("||")) {
+				String[] mes1 = blockEntity.messages[i].split("\\|\\|",2);
+				f2 = Math.min(f2,(float)(-Math.max(f.width(mes1[0]),f.width(mes1[1])) / 2));
+			} else {
+				f2 = Math.min(f2,(float)(-f.width(blockEntity.messages[i]) / 2));
+			}
+		}
+		
+		for(int i=0;i<signCount;i++) {
+			if(blockEntity.messages[i].contains("||")) {
+				String[] mes1 = blockEntity.messages[i].split("\\|\\|",2);
+				
+				poseStack.translate(0f, -5.625f, 0f);
+				
+				mc = Component.literal(mes1[0]).withStyle(style);
+				f.drawInBatch(mc, f2, 0f, -1, false, poseStack.last().pose(), bufferSource, false, packedLight, packedLight);
+				poseStack.translate(0f, 11.25f, 0f);
+				
+				mc = Component.literal(mes1[1]).withStyle(style);
+				f.drawInBatch(mc, f2, 0f, -1, false, poseStack.last().pose(), bufferSource, false, packedLight, packedLight);
+				poseStack.translate(0f, 19.3125f, 0f);
+			} else {
+				
+				mc = Component.literal(blockEntity.messages[i]).withStyle(style);
+				f.drawInBatch(mc, f2, 0f, -1, false, poseStack.last().pose(), bufferSource, false, packedLight, packedLight);
+				poseStack.translate(0f, 24.9375f, 0f);
+			}
+			
 		}
 		
 		
