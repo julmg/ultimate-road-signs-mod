@@ -41,7 +41,7 @@ public class WritableRoadSignBlockEntityRenderer implements BlockEntityRenderer<
 			textcolor = ChatFormatting.BLACK;
 		}
 		
-		Style style = Style.EMPTY.withColor(textcolor).withBold(true);
+		Style style = Style.EMPTY.withColor(textcolor);
 		
 		poseStack.translate(0.5f, 0.9125f, 0.5f); //Put text at pole position
 		
