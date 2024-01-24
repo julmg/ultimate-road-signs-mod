@@ -35,7 +35,7 @@ public class WritableERoadSign extends RoadSign implements EntityBlock {
 	public enum FrESignColor implements StringRepresentable 
 	{ 
 		
-		WHITE, YELLOW, RED, CYAN, GREEN;
+		WHITE, YELLOW, RED, CYAN, GREEN, BI;
 
 		@Override
 		public String getSerializedName() {
@@ -95,6 +95,9 @@ public class WritableERoadSign extends RoadSign implements EntityBlock {
 						currentColor = FrESignColor.RED;
 						break;
 					case RED:
+						currentColor = FrESignColor.BI;
+						break;
+					case BI:
 						currentColor = FrESignColor.YELLOW;
 						break;
 					case YELLOW:

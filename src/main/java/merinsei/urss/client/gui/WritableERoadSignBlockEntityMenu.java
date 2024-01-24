@@ -63,9 +63,14 @@ public class WritableERoadSignBlockEntityMenu extends AbstractContainerMenu {
 	    ctx.get().enqueueWork(() -> {
         	BlockEntity tile = currentLevel.getBlockEntity(currentPos);
         	if (tile instanceof WritableERoadSignBlockEntity){
-        		
+        		BlockState state = currentLevel.getBlockState(currentPos);
         		
 	            ((WritableERoadSignBlockEntity) tile).message = msg.message;
+	            
+	            currentLevel.setBlock(currentPos, state, 3);
+	            currentLevel.sendBlockUpdated(currentPos, 
+	            		state, 
+	            		state, 3);
 	            
 	            ((WritableERoadSignBlockEntity) tile).setChanged();
 	        }

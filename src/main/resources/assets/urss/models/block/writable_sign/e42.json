@@ -2,6 +2,6 @@
    "parent": "urss:block/sign_down_template_sh",
    "textures": {
        "sign": "urss:blocks/e42",
-       "sign_back": "urss:blocks/grey_e"
+       "sign_back": "urss:blocks/grey_64x23"
    }
 }

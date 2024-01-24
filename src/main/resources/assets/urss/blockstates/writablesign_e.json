@@ -34,6 +34,22 @@
             "y": 270
         },
 		
+		"facing=east,color=bi": {
+            "model": "urss:block/writable_sign/e4142",
+            "y": 90
+        },
+        "facing=north,color=bi": {
+            "model": "urss:block/writable_sign/e4142"
+        },
+        "facing=south,color=bi": {
+            "model": "urss:block/writable_sign/e4142",
+            "y": 180
+        },
+        "facing=west,color=bi": {
+            "model": "urss:block/writable_sign/e4142",
+            "y": 270
+        },
+		
 		
 		
 		"facing=east,color=yellow": {
