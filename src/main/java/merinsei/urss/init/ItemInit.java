@@ -13,7 +13,7 @@ public class ItemInit {
 	public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, Urss.MODID);
 	
 	public static final RegistryObject<Item> HAMMER = ITEMS.register("hammer", () -> new Item(new Item.Properties().tab(ModCreativeTab.instance)));
-
+	public static final RegistryObject<Item> BRUSH = ITEMS.register("brush", () -> new Item(new Item.Properties().tab(ModCreativeTab.instance)));
 	
 	public static class ModCreativeTab extends CreativeModeTab {
 		

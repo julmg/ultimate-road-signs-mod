@@ -9,11 +9,9 @@ import net.minecraftforge.network.NetworkEvent;
 
 public class ToClientWritableRoadSignMessagePacket {
 	public String[] messages;
-	public String color;
 	
-	public ToClientWritableRoadSignMessagePacket(String[] messages, String color) {
+	public ToClientWritableRoadSignMessagePacket(String[] messages) {
 		this.messages = messages;
-		this.color = color;
 	}
 	
 	public static void handle(ToClientWritableRoadSignMessagePacket msg, Supplier<NetworkEvent.Context> ctx) {

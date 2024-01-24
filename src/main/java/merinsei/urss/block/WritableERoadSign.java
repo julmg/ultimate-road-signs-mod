@@ -2,9 +2,11 @@ package merinsei.urss.block;
 
 import javax.annotation.Nullable;
 
+import merinsei.urss.block.WritableDirectionRoadSign.FrDirectionSignColor;
 import merinsei.urss.block.entity.WritableERoadSignBlockEntity;
 import merinsei.urss.client.gui.WritableERoadSignBlockEntityMenu;
 import merinsei.urss.init.BlockEntityInit;
+import merinsei.urss.init.ItemInit;
 import merinsei.urss.network.UrssPacketHandler;
 import merinsei.urss.network.ToClientWritableERoadSignMessagePacket;
 import net.minecraft.core.BlockPos;
@@ -80,8 +82,36 @@ public class WritableERoadSign extends RoadSign implements EntityBlock {
 			BlockEntity blockEntity = level.getBlockEntity(pos);
 			if(blockEntity instanceof WritableERoadSignBlockEntity wersbe) {
 				
-			    NetworkHooks.openScreen(serverPlayer, state.getMenuProvider(level, pos));
-			    UrssPacketHandler.INSTANCE.send(PacketDistributor.PLAYER.with(()->serverPlayer), new ToClientWritableERoadSignMessagePacket(wersbe.message, state.getValue(COLOR).getSerializedName()));
+				if(player.getItemInHand(hand).getItem() == ItemInit.BRUSH.get()) {
+					FrESignColor currentColor = state.getValue(COLOR);
+					switch(currentColor) {
+					case WHITE:
+						currentColor = FrESignColor.CYAN;
+						break;
+					case CYAN:
+						currentColor = FrESignColor.GREEN;
+						break;
+					case GREEN:
+						currentColor = FrESignColor.RED;
+						break;
+					case RED:
+						currentColor = FrESignColor.YELLOW;
+						break;
+					case YELLOW:
+						currentColor = FrESignColor.WHITE;
+						break;
+					default:
+						break;
+					
+					}
+					level.setBlock(pos, state.setValue(COLOR, currentColor), UPDATE_ALL);
+
+				} else if(player.getItemInHand(hand).getItem() == ItemInit.HAMMER.get()) {
+					NetworkHooks.openScreen(serverPlayer, state.getMenuProvider(level, pos));
+				    UrssPacketHandler.INSTANCE.send(PacketDistributor.PLAYER.with(()->serverPlayer), new ToClientWritableERoadSignMessagePacket(wersbe.message));
+				}
+				
+			    
 			}
 			
 		}

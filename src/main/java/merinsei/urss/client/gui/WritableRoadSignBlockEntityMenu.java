@@ -81,8 +81,6 @@ public class WritableRoadSignBlockEntityMenu extends AbstractContainerMenu {
         		}
         		
 	            ((WritableRoadSignBlockEntity) tile).messages = msg.messages.clone();
-	            nstate = nstate.setValue(WritableDirectionRoadSign.COLOR, WritableDirectionRoadSign.FrDirectionSignColor.valueOf(msg.color.toUpperCase()));
-	            
 	            currentLevel.setBlock(currentPos, nstate, 3);
 	            
 	            currentLevel.sendBlockUpdated(currentPos, 

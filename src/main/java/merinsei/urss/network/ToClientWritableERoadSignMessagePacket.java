@@ -9,11 +9,9 @@ import net.minecraftforge.network.NetworkEvent;
 
 public class ToClientWritableERoadSignMessagePacket {
 	public String message;
-	public String color;
 	
-	public ToClientWritableERoadSignMessagePacket(String message, String color) {
+	public ToClientWritableERoadSignMessagePacket(String message) {
 		this.message = message;
-		this.color = color;
 	}
 	
 	public static void handle(ToClientWritableERoadSignMessagePacket msg, Supplier<NetworkEvent.Context> ctx) {

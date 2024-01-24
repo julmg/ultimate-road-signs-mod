@@ -24,15 +24,13 @@ public class UrssPacketHandler {
 		fbb.writeUtf(pkt.messages[1]);
 		fbb.writeUtf(pkt.messages[2]);
 		fbb.writeUtf(pkt.messages[3]);
-		fbb.writeUtf(pkt.color);
 		return fbb;
 		
 	}
 	
 	public static ToServerWritableRoadSignMessagePacket decodeCTS(FriendlyByteBuf fbb) {
 		String[] messages = { fbb.readUtf(), fbb.readUtf(), fbb.readUtf(), fbb.readUtf() };
-		String color = fbb.readUtf();
-		ToServerWritableRoadSignMessagePacket pkt = new ToServerWritableRoadSignMessagePacket(messages, color);
+		ToServerWritableRoadSignMessagePacket pkt = new ToServerWritableRoadSignMessagePacket(messages);
 		return pkt;
 	}
 	
@@ -42,15 +40,13 @@ public class UrssPacketHandler {
 		fbb.writeUtf(pkt.messages[1]);
 		fbb.writeUtf(pkt.messages[2]);
 		fbb.writeUtf(pkt.messages[3]);
-		fbb.writeUtf(pkt.color);
 		return fbb;
 		
 	}
 	
 	public static ToClientWritableRoadSignMessagePacket decodeSTC(FriendlyByteBuf fbb) {
 		String[] messages = { fbb.readUtf(), fbb.readUtf(), fbb.readUtf(), fbb.readUtf() };
-		String color = fbb.readUtf();
-		ToClientWritableRoadSignMessagePacket pkt = new ToClientWritableRoadSignMessagePacket(messages, color);
+		ToClientWritableRoadSignMessagePacket pkt = new ToClientWritableRoadSignMessagePacket(messages);
 		return pkt;
 	}
 	
@@ -60,26 +56,24 @@ public class UrssPacketHandler {
 	
 	public static FriendlyByteBuf encode(ToServerWritableERoadSignMessagePacket pkt, FriendlyByteBuf fbb) {
 		fbb.writeUtf(pkt.message);
-		fbb.writeUtf(pkt.color);
 		return fbb;
 		
 	}
 	
 	public static ToServerWritableERoadSignMessagePacket decodeCTS_E(FriendlyByteBuf fbb) {
-		ToServerWritableERoadSignMessagePacket pkt = new ToServerWritableERoadSignMessagePacket(fbb.readUtf(), fbb.readUtf());
+		ToServerWritableERoadSignMessagePacket pkt = new ToServerWritableERoadSignMessagePacket(fbb.readUtf());
 		return pkt;
 	}
 	
 	
 	public static FriendlyByteBuf encode(ToClientWritableERoadSignMessagePacket pkt, FriendlyByteBuf fbb) {
 		fbb.writeUtf(pkt.message);
-		fbb.writeUtf(pkt.color);
 		return fbb;
 		
 	}
 	
 	public static ToClientWritableERoadSignMessagePacket decodeSTC_E(FriendlyByteBuf fbb) {
-		ToClientWritableERoadSignMessagePacket pkt = new ToClientWritableERoadSignMessagePacket(fbb.readUtf(), fbb.readUtf());
+		ToClientWritableERoadSignMessagePacket pkt = new ToClientWritableERoadSignMessagePacket(fbb.readUtf());
 		return pkt;
 	}
 	

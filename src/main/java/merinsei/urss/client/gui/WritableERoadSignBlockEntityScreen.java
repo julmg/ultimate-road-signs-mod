@@ -19,32 +19,7 @@ import net.minecraftforge.network.NetworkEvent;
 public class WritableERoadSignBlockEntityScreen extends AbstractContainerScreen<WritableERoadSignBlockEntityMenu> {
 
 	private static String message = "";
-	private static WritableERoadSign.FrESignColor color = FrESignColor.RED;
 	private static EditBox editbox;
-	
-	Button colorbtn = new Button(this.width / 2, this.height / 5 + 170, 100, 20, Component.literal("Color : "+color.getSerializedName().toUpperCase()), (p_169820_) -> {
-		switch(color) {
-		case WHITE:
-			color = FrESignColor.CYAN;
-			break;
-		case CYAN:
-			color = FrESignColor.GREEN;
-			break;
-		case GREEN:
-			color = FrESignColor.RED;
-			break;
-		case RED:
-			color = FrESignColor.YELLOW;
-			break;
-		case YELLOW:
-			color = FrESignColor.WHITE;
-			break;
-		default:
-			break;
-		
-		}
-		switchColorBtnMsg();
-	});
 	
 	public WritableERoadSignBlockEntityScreen(WritableERoadSignBlockEntityMenu menu, Inventory playerInventory, Component title) {
 		super(menu, playerInventory, title);
@@ -65,20 +40,14 @@ public class WritableERoadSignBlockEntityScreen extends AbstractContainerScreen<
 		this.addRenderableWidget(new Button(this.width / 2 - 100, this.height / 5 + 170, 100, 20, CommonComponents.GUI_DONE, (p_169820_) -> {
 			getEditBoxesValues();
 			
-			ToServerWritableERoadSignMessagePacket pkt = new ToServerWritableERoadSignMessagePacket(message, color.getSerializedName().toUpperCase());
+			ToServerWritableERoadSignMessagePacket pkt = new ToServerWritableERoadSignMessagePacket(message);
 			UrssPacketHandler.INSTANCE.sendToServer(pkt);
 			
 			this.minecraft.gameMode.handleInventoryButtonClick((this.menu).containerId, 1);
 			this.minecraft.player.closeContainer();
 		}));
 				
-		this.addRenderableWidget(colorbtn);
 
-	}
-	
-	private void switchColorBtnMsg() {
-		colorbtn.setMessage(Component.literal("Color : "+ color.getSerializedName().toUpperCase()));
-		
 	}
 
 	private static void getEditBoxesValues() {
@@ -132,7 +101,6 @@ public class WritableERoadSignBlockEntityScreen extends AbstractContainerScreen<
 	
 	public static void handlePacket(ToClientWritableERoadSignMessagePacket msg, Supplier<NetworkEvent.Context> ctx) {
 		message = msg.message;
-		color = FrESignColor.valueOf(msg.color.toUpperCase());
 		setEditBoxesValues();
 	}
 	

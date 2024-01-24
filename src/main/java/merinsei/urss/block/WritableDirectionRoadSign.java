@@ -2,9 +2,11 @@ package merinsei.urss.block;
 
 import javax.annotation.Nullable;
 
+import merinsei.urss.block.BlinkingTrafficLight.BlinkingTrafficLightColor;
 import merinsei.urss.block.entity.WritableRoadSignBlockEntity;
 import merinsei.urss.client.gui.WritableRoadSignBlockEntityMenu;
 import merinsei.urss.init.BlockEntityInit;
+import merinsei.urss.init.ItemInit;
 import merinsei.urss.network.UrssPacketHandler;
 import merinsei.urss.network.ToClientWritableRoadSignMessagePacket;
 import net.minecraft.core.BlockPos;
@@ -83,9 +85,41 @@ public class WritableDirectionRoadSign extends RoadSign implements EntityBlock {
 		if (!level.isClientSide && player instanceof ServerPlayer serverPlayer) {
 			BlockEntity blockEntity = level.getBlockEntity(pos);
 			if(blockEntity instanceof WritableRoadSignBlockEntity wrsbe) {
+				if(player.getItemInHand(hand).getItem() == ItemInit.BRUSH.get()) {
+					
+					FrDirectionSignColor currentColor = state.getValue(COLOR);
+					System.out.println(currentColor.getSerializedName());
+					switch(currentColor) {
+					case BLUE_L:
+						currentColor = FrDirectionSignColor.GREEN_L;
+						break;
+					case GREEN_L:
+						currentColor = FrDirectionSignColor.WHITE_L;
+						break;
+					case WHITE_L:
+						currentColor = FrDirectionSignColor.BLUE_R;
+						break;
+					case BLUE_R:
+						currentColor = FrDirectionSignColor.GREEN_R;
+						break;
+					case GREEN_R:
+						currentColor = FrDirectionSignColor.WHITE_R;
+						break;
+					case WHITE_R:
+						currentColor = FrDirectionSignColor.BLUE_L;
+						break;
+					default:
+						break;
+					
+					}
+					level.setBlock(pos, state.setValue(COLOR, currentColor), UPDATE_ALL);
+				} else if(player.getItemInHand(hand).getItem() == ItemInit.HAMMER.get()) {
+					NetworkHooks.openScreen(serverPlayer, state.getMenuProvider(level, pos));
+				    UrssPacketHandler.INSTANCE.send(PacketDistributor.PLAYER.with(()->serverPlayer), new ToClientWritableRoadSignMessagePacket(wrsbe.messages));
+				}
 				
-			    NetworkHooks.openScreen(serverPlayer, state.getMenuProvider(level, pos));
-			    UrssPacketHandler.INSTANCE.send(PacketDistributor.PLAYER.with(()->serverPlayer), new ToClientWritableRoadSignMessagePacket(wrsbe.messages, state.getValue(COLOR).getSerializedName()));
+				
+			    
 			}
 			
 		}
