@@ -12,6 +12,8 @@ import merinsei.urss.network.ToClientWritableRoadSignMessagePacket;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.StringRepresentable;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
@@ -86,6 +88,7 @@ public class WritableDirectionRoadSign extends RoadSign implements EntityBlock {
 			BlockEntity blockEntity = level.getBlockEntity(pos);
 			if(blockEntity instanceof WritableRoadSignBlockEntity wrsbe) {
 				if(player.getItemInHand(hand).getItem() == ItemInit.BRUSH.get()) {
+					level.playSound(player, pos, SoundEvents.PAINTING_PLACE, SoundSource.BLOCKS, 1.0f, 1.0f);
 					
 					FrDirectionSignColor currentColor = state.getValue(COLOR);
 					System.out.println(currentColor.getSerializedName());
